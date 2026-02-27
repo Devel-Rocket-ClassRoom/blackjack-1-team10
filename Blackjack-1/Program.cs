@@ -1,3 +1,5 @@
 using System;
 
-Console.WriteLine("Hello, Blackjack");
+BlackJack blackJack = new BlackJack();
+blackJack.Start();
+
