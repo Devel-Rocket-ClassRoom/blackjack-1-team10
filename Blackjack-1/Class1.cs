@@ -71,6 +71,7 @@ public class BlackJack
 
     public void Shuffle()
     {
+        Console.WriteLine("카드를 섞는 중. . .\n");
         Random rnd = new Random();
         for (int i = 0; i < deck.Length; i++)
         {
@@ -88,7 +89,7 @@ public class BlackJack
         {
             Console.Write($"{player_hand[i]} ");
         }
-        Console.WriteLine($"\n플레이어의 점수: {Calculate(player_hand, player_hand_count)}");
+        Console.WriteLine($"\n플레이어의 점수: {Calculate(player_hand, player_hand_count)}\n");
     }
 
     public void DealerInfo()
@@ -96,7 +97,7 @@ public class BlackJack
         if (!flag)
         {
             Console.WriteLine($"딜러의 패: [??] {dealer_hand[1]}");
-            Console.WriteLine($"딜러의 점수: ?");
+            Console.WriteLine($"딜러의 점수: ?\n");
         }
         else
         {
@@ -106,7 +107,7 @@ public class BlackJack
             {
                 Console.Write($"{dealer_hand[i]} ");
             }
-            Console.WriteLine($"\n딜러의 점수: {Calculate(dealer_hand, dealer_hand_count)}");
+            Console.WriteLine($"\n딜러의 점수: {Calculate(dealer_hand, dealer_hand_count)}\n");
         }
     }
 
@@ -179,6 +180,7 @@ public class BlackJack
                 flag = true;
                 Console.Write($"H(Hit) 또는 S(Stand)를 선택하세요: ");
                 var result = Console.ReadLine();
+                Console.WriteLine();
                 if (result == "H" || result == "h")
                 {
                     GetCard(ref player_hand, ref player_hand_count);
@@ -186,7 +188,7 @@ public class BlackJack
                     PlayerInfo();
                     if (Calculate(player_hand, player_hand_count) > 21)
                     {
-                        Console.WriteLine($"버스트! 21을 초과했습니다.");
+                        Console.WriteLine($"버스트! 21을 초과했습니다.\n");
                         IsPlayerAlive = false;
                         break;
                     }
@@ -194,7 +196,7 @@ public class BlackJack
                 }
                 else if (result == "S" || result == "s")
                 {
-                    Console.WriteLine("플레이어가 Stand를 선택했습니다.");
+                    Console.WriteLine("플레이어가 Stand를 선택했습니다.\n");
                     break;
                 }
             }
@@ -237,19 +239,19 @@ public class BlackJack
 
             Console.WriteLine("=== 게임 결과 ===");
             Console.WriteLine($"플레이어: {Calculate(player_hand, player_hand_count)}점");
-            Console.WriteLine($"딜러: {Calculate(dealer_hand, dealer_hand_count)}점");
+            Console.WriteLine($"딜러: {Calculate(dealer_hand, dealer_hand_count)}점\n");
 
             if (IsPlayerAlive)
             {
-                Console.WriteLine("플레이어 승리!");
+                Console.WriteLine("플레이어 승리!\n");
             }
             else if (IsDealerAilve)
             {
-                Console.WriteLine("플레이어 패배!");
+                Console.WriteLine("플레이어 패배!\n");
             }
             else if (!IsPlayerAlive && !IsDealerAilve)
             {
-                Console.WriteLine("무승부!");
+                Console.WriteLine("무승부!\n");
             }
 
 
